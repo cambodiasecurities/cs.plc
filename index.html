@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Google Sheet.css">
+    <title>Event Form</title>
+</head>
+<body>
+    <div class="header">
+        <img src="CSP_LOGO-02.png" alt="Logo">
+    </div>
+    
+    <div class="container">
+        <div class="date-time" id="dateTime">
+            <div class="clock" id="clock">Loading clock...</div>
+            <div class="date" id="date">Loading date...</div>
+        </div>
+        <form method="post" action="https://script.google.com/macros/s/AKfycbwy_UfHrUoUkyPqR5y3A6SqZjNbnn_QlHFIPEI82n4GV83kY-TflmkZexjAvjavyXj-6w/exec" name="contact-form" id="contactForm">
+            <label for="name"><Name></label>
+            <input type="text" name="your-name" placeholder="Name" required>
+            <label for="gender">Gender</label>
+            <select name="gender" id="gender" required>
+                <option value="" disabled selected>Select your gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            <label for="company-name">Company Name</label>
+            <input type="text" name="company-name" placeholder="Company Name" required>
+            <input type="submit" value="Submit" id="submit">
+        </form>
+    </div>
+    
+    <div class="overlay" id="overlay">
+        <img src="Infinity@4x-2.0s-200px-200px.gif" alt="Loading" class="loading-icon" id="loadingIcon">
+    </div>
+
+    <div class="slider">
+        <div class="slides">
+            <div class="slide"><img src="06.png" alt="Slide 1"></div>
+            <div class="slide"><img src="07.png" alt="Slide 2"></div>
+        </div>
+    </div>
+
+    <script>
+        // Function to update the date and clock
+        function updateDateTime() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            const day = now.getDate().toString().padStart(2, '0');
+            const month = (now.getMonth() + 1).toString().padStart(2, '0'); // Months are 0-based
+            const year = now.getFullYear();
+
+            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+            document.getElementById('date').textContent = `${day}/${month}/${year}`;
+        }
+
+        // Update the date and clock every second
+        setInterval(updateDateTime, 1000);
+
+        // Initial call to set the date and clock immediately
+        updateDateTime();
+
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Show the overlay and loading icon
+            document.getElementById('overlay').style.display = 'flex'; // Changed to flex for centering
+            document.getElementById('loadingIcon').style.display = 'block';
+            document.getElementById('contactForm').style.display = 'none'; // Hide the form
+
+            var form = event.target;
+            var formData = new FormData(form);
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Hide the overlay and loading icon
+                document.getElementById('overlay').style.display = 'none';
+                document.getElementById('loadingIcon').style.display = 'none';
+
+                if (data.result === 'success') {
+                    window.location.href = 'thank-you.html'; // Redirect to thank you page
+                } else {
+                    alert('There was a problem with your submission. Please try again.');
+                }
+            })
+            .catch(error => {
+                // Hide the overlay and loading icon
+                document.getElementById('overlay').style.display = 'none';
+                document.getElementById('loadingIcon').style.display = 'none';
+
+                alert('There was a problem with your submission. Please try again.');
+                console.error('Error:', error);
+            });
+        });
+
+        // Function to handle the auto-slider
+        const slides = document.querySelector('.slides');
+        let index = 0;
+
+        function showNextSlide() {
+            index = (index + 1) % document.querySelectorAll('.slide').length;
+            slides.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        setInterval(showNextSlide, 3000); // Change slide every 3 seconds
+    </script>
+</body>
+</html>
