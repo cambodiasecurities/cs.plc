@@ -248,11 +248,11 @@ label {
   .slide img {
     height: auto; /* Maintain aspect ratio on smaller screens */
   }
-   .header {
+  .header {
     top: 1px; /* Adjust to keep header inside container */
     margin-bottom: 10px;
   }
-    .header img {
+  .header img {
     max-width: 235px; /* Adjust logo size for smaller screens */
   }
 }
@@ -260,26 +260,22 @@ label {
   .slide img {
     height: auto; /* Maintain aspect ratio on smaller screens */
   }
-   .header {
-    
+  .header {
     margin-bottom: 10px;
   }
-    .header img {
+  .header img {
     max-width: 235px; /* Adjust logo size for smaller screens */
   }
-  
 }
 @media (max-width: 512px) {
   .slide img {
     height: auto; /* Maintain aspect ratio on smaller screens */
   }
-   .header {
-    top: 200px;
+  .header {
+    top: 20px;
     margin-bottom: 10px;
   }
-    .header img {
+  .header img {
     max-width: 235px; /* Adjust logo size for smaller screens */
   }
-  
 }
-
