@@ -269,13 +269,13 @@ label {
 }
 @media (max-width: 512px) {
   .slider {
-    bottom: -20px; /* Less space from the bottom on smaller screens */
+    bottom: -30px; /* Less space from the bottom on smaller screens */
     max-width: 100%; /* Full width on smaller screens */
     margin: 10px auto; /* Centering horizontally */
   }
 
   .header {
-    top: 20px;
+    top: 50px;
     margin-bottom: 10px;
   }
 
