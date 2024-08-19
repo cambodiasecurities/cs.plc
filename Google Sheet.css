@@ -21,9 +21,6 @@ body {
   width: 90%;
   max-width: 500px;
   padding: 20px;
-  border: 1px solid #1f417e;
-  border-radius: 10px;
-  background-image: url("Untitled-2.png");
   position: relative; /* To position header inside container */
   z-index: 1; /* Ensure it is above the overlay */
 }
