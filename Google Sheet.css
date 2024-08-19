@@ -274,7 +274,7 @@ label {
     height: auto; /* Maintain aspect ratio on smaller screens */
   }
    .header {
-    
+    top: 10px;
     margin-bottom: 10px;
   }
     .header img {
