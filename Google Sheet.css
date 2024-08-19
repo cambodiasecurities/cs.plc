@@ -240,7 +240,7 @@ label {
 }
 @media (max-width: 375px) {
   .slider {
-    bottom: 0; /* Less space from the bottom on smaller screens */
+    bottom: -20px; /* Less space from the bottom on smaller screens */
     max-width: 100%; /* Full width on smaller screens */
     margin: 10px auto; /* Centering horizontally */
   }
@@ -249,7 +249,7 @@ label {
     height: auto; /* Maintain aspect ratio on smaller screens */
   }
   .header {
-    top: 1px; /* Adjust to keep header inside container */
+    top: -10px; /* Adjust to keep header inside container */
     margin-bottom: 10px;
   }
   .header img {
@@ -269,13 +269,13 @@ label {
 }
 @media (max-width: 512px) {
   .slider {
-    bottom: -30px; /* Less space from the bottom on smaller screens */
+    bottom: -20px; /* Less space from the bottom on smaller screens */
     max-width: 100%; /* Full width on smaller screens */
     margin: 10px auto; /* Centering horizontally */
   }
 
   .header {
-    top: 50px;
+    top: 30px;
     margin-bottom: 10px;
   }
 
