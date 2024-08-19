@@ -269,4 +269,17 @@ label {
   }
   
 }
+@media (max-width: 512px) {
+  .slide img {
+    height: auto; /* Maintain aspect ratio on smaller screens */
+  }
+   .header {
+    
+    margin-bottom: 10px;
+  }
+    .header img {
+    max-width: 235px; /* Adjust logo size for smaller screens */
+  }
+  
+}
 
