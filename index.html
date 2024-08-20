@@ -15,13 +15,28 @@
         height: auto;
         margin-top: 20%; /* Move the logo down by 20% */
       }
+     @keyframes swing-bottom {
+  0% {
+    transform: rotateX(0deg);
+    transform-origin: top;
+  }
+  100% {
+    transform: rotateX(30deg);
+    transform-origin: top;
+  }
+}
+
+.swing-bottom {
+  animation: swing-bottom 1s ease-in-out infinite alternate;
+}
+ 
     </style>
   </head>
   <body>
     <div class="container mt-4">
       <!-- Logo Section -->
       <div class="text-center mb-4">
-        <img src="CSP_LOGO-02.png" alt="Logo" class="img-fluid logo" />
+        <img src="CSP_LOGO-02.png" alt="Logo" class="img-fluid logo swing-bottom" />
       </div>
 
       <!-- Date and Time Section -->
